@@ -112,3 +112,5 @@ C:\Users\Soumya\documents\visual studio 2015\Projects\FAITool\FAITool\bin\Debug\
 C:\Users\Soumya\documents\visual studio 2015\Projects\FAITool\FAITool\bin\Debug\FluentFTP.xml
 C:\Users\Soumya\documents\visual studio 2015\Projects\FAITool\FAITool\obj\Debug\FAITool.FORM__SavePicture.resources
 C:\Users\Soumya\Documents\Visual Studio 2015\Projects\FAITool\FAITool\obj\Debug\FAITool.FORM__Clock.resources
+C:\Users\vs\Documents\Visual Studio 2015\Projects\FAITool\FAITool\obj\Debug\FAITool.exe
+C:\Users\vs\Documents\Visual Studio 2015\Projects\FAITool\FAITool\obj\Debug\FAITool.pdb

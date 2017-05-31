@@ -16,7 +16,7 @@ using System.IO;
 
 /// <summary>
 /// Author: Soumya Bagade 
-/// Author: Alex Boss
+/// Author: Vicki Shaw
 /// /// </summary>
 namespace FAITool
 {

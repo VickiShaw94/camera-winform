@@ -71,9 +71,13 @@ namespace FAITool
 
             //splits the time into minutes, seconds, and milliseconds
             int milliseconds = time % 100;
-            int seconds = (time % 3600) / 60 ; 
+            int seconds = (time / 1000);
+            //int minutes = (time / 60000) % 60;
+            int hours = (time / (1000 * 60 * 60)) % 24;
+            
+            //int seconds = (time % 1000) / 60 ; 
             int minutes = (time % (3600 * 3600)) / 3600;
-            int hours = (time % (3600 ^ 3)) / (3600 * 60);
+            //int hours = (time % (3600 ^ 3)) / (3600 * 60);
 
             //the strings that hold the times
             string millisecondsString = string.Empty;

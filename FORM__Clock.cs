@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+using System.Diagnostics;
 
 //use this if we also want minutes https://www.youtube.com/watch?v=lp9cJJUDUsk
 
@@ -19,7 +11,7 @@ namespace FAITool
     public partial class FORM__Clock : DevExpress.XtraEditors.XtraForm
     {
 
-        int time = 0;
+        Stopwatch stopwatch = new Stopwatch();
 
         public FORM__Clock()
         {
@@ -35,6 +27,7 @@ namespace FAITool
         private void btn_startTimer_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            stopwatch.Start();
         }
 
         /// <summary>
@@ -44,6 +37,7 @@ namespace FAITool
         private void btn_pauseTimer_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;
+            stopwatch.Stop();
         }
 
         /// <summary>
@@ -56,7 +50,6 @@ namespace FAITool
 
             timer1.Enabled = false;
             lbl_timer.Text = "00:00:00.00";
-            time = 0;
         }
 
         /// <summary>
@@ -66,54 +59,11 @@ namespace FAITool
         /// <param name="e">displays an increment on the stopwatch on the form</param>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //increments the time for every second
-            time++;
+            TimeSpan ts = stopwatch.Elapsed;
 
-            //splits the time into minutes, seconds, and milliseconds
-            int milliseconds = time % 100;
-            int seconds = (time / 1000);
-            //int minutes = (time / 60000) % 60;
-            int hours = (time / (1000 * 60 * 60)) % 24;
-            
-            //int seconds = (time % 1000) / 60 ; 
-            int minutes = (time % (3600 * 3600)) / 3600;
-            //int hours = (time % (3600 ^ 3)) / (3600 * 60);
-
-            //the strings that hold the times
-            string millisecondsString = string.Empty;
-            string secondsString = string.Empty;
-            string minutesString = string.Empty;
-            string hoursString = string.Empty;
-
-            millisecondsString = milliseconds.ToString();
-                      
-            
-            if (seconds < 10)
-            {
-                secondsString = "0" + seconds;
-            }
-            else
-            {
-                secondsString = seconds.ToString();
-            }
-            if (minutes < 10)
-            {
-                minutesString = "0" + minutes;
-            }
-            else
-            {
-                minutesString = seconds.ToString();
-            }
-            if (hours < 10)
-            {
-                hoursString = "0" + hours;
-            }
-            else
-            {
-                hoursString = seconds.ToString();
-            }
-
-            lbl_timer.Text = hours.ToString() + ":" + minutesString + ":" + secondsString + "." + millisecondsString;
+            lbl_timer.Text = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
         }
 
         /// <summary>

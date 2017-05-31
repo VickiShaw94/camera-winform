@@ -11,7 +11,7 @@ namespace FAITool
     public partial class FORM__Clock : DevExpress.XtraEditors.XtraForm
     {
 
-        Stopwatch stopwatch = new Stopwatch();
+        Stopwatch _stopwatch = new Stopwatch();
 
         public FORM__Clock()
         {
@@ -27,7 +27,7 @@ namespace FAITool
         private void btn_startTimer_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            stopwatch.Start();
+            _stopwatch.Start();
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace FAITool
         private void btn_pauseTimer_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;
-            stopwatch.Stop();
+            _stopwatch.Stop();
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace FAITool
         /// <param name="e">displays an increment on the stopwatch on the form</param>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TimeSpan ts = stopwatch.Elapsed;
+            TimeSpan ts = _stopwatch.Elapsed;
 
             lbl_timer.Text = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
             ts.Hours, ts.Minutes, ts.Seconds,
